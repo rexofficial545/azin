@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 تولدت مبارک آزاده 🎂</title>
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f9d423, #ff4e50);
+  font-family: 'Comic Sans MS', Tahoma, Arial, sans-serif;
+  text-align: center;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 10%;
+  font-size: 3em;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+.message {
+  margin: 20px auto;
+  font-size: 1.5em;
+  line-height: 1.6;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  padding: 20px 30px;
+  border-radius: 20px;
+  max-width: 90%;
+  min-height: 150px;
+  text-align: right;
+  direction: rtl;
+  white-space: pre-wrap;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+button {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  color: #ff4e50;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fffa;
+  transform: scale(1.1);
+}
+
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  border-radius: 50%;
+  animation: rise 10s infinite ease-in;
+}
+
+@keyframes rise {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+</style>
+</head>
+<body>
+
+<h1>🎉  تولدت مبارک آزاده جان🎂</h1>
+
+<div class="message" id="message"></div>
+
+<button id="playBtn">🎵 پخش آهنگ تولد</button>
+
+<audio id="music" preload="auto">
+  <source src="https://www.orangefreesounds.com/wp-content/uploads/2016/06/Happy-birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const text = `🎈 امروز روز توست!
+🎉 تولدت مبارک باشه!
+✨ امیدوارم امسال پر از شادی، لبخند و لحظات خوش باشه.
+🎁 به امید اینکه هر روزت پر از سورپرایز و خاطره‌های خوش باشه!
+🥳 بهترین‌ها همیشه مال تو !`;
+
+const msgDiv = document.getElementById("message");
+let idx = 0;
+
+function typeWriter() {
+  if (idx < text.length) {
+    msgDiv.innerText += text.charAt(idx);
+    idx++;
+    setTimeout(typeWriter, 80);
+  }
+}
+
+document.getElementById('playBtn').addEventListener('click', () => {
+  document.getElementById("music").play();
+  typeWriter();
+});
+
+for(let i=0;i<20;i++){
+  const b = document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*100+"%";
+  b.style.background=`hsl(${Math.random()*360}, 100%, 50%)`;
+  b.style.animationDuration=(4+Math.random()*6)+"s";
+  document.body.appendChild(b);
+}
+</script>
+
+</body>
+</html>
